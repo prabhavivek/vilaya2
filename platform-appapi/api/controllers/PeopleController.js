@@ -2,15 +2,12 @@ module.exports = {
 
     signUp: async function (req, res) {
 		sails.log.info("@Controller PeopleController @Method signUp(req,res)");
-        if(!req.body.firstName || req.body.firstName == undefined || !req.body.emailId || req.body.emailId == undefined || !req.body.userName || req.body.userName == undefined)
-            return;
-        let input = {}
-        input.firstName = req.body.firstName;
-        input.lastName  = req.body.lastName;
-        input.userName = req.body.userName;
-        input.emailId   = req.body.emailId;
+		
+        if(!req.body.first_name || req.body.first_name == undefined || !req.body.email_id || req.body.email_id == undefined || !req.body.user_name || req.body.user_name == undefined)
+			return res.badRequest({message : "parameter(s) is missing"});
+
 		try{
-	       	let result = await PeopleService.signUp(input);
+	       	let result = await PeopleService.signUp(req.body);
 			res.json(result);
 		}catch(err){
 			sails.log.error("@Controller PeopleController @Method signUp @Message Error:", err);

@@ -24,6 +24,9 @@ module.exports = {
         },
         profile_picture:{
             type: 'string',
+        },
+        role:{
+            type: 'number'
         }
     },
 

@@ -48,5 +48,6 @@ module.exports.globals = {
   ****************************************************************************/
 
   sails: true,
-
+  ADMIN_ROLE_ID:1,
+  PLAYER_ROLE_ID:2,  
 };
