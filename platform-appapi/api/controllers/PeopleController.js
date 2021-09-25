@@ -2,7 +2,7 @@ module.exports = {
 
     signUp: async function (req, res) {
 		sails.log.info("@Controller PeopleController @Method signUp(req,res)");
-		
+
         if(!req.body.first_name || req.body.first_name == undefined || !req.body.email_id || req.body.email_id == undefined || !req.body.user_name || req.body.user_name == undefined)
 			return res.badRequest({message : "parameter(s) is missing"});
 

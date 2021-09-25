@@ -6,11 +6,15 @@ module.exports = {
     attributes: {
         id: {
             type: 'number',
-            required: true
+            autoIncrement: true
         },
         user_name: {
             type: 'string',
             required: true
+        },
+        email_id:{
+            type: 'string',
+            required: true  
         },
         password: {
             type: 'string',
@@ -25,8 +29,9 @@ module.exports = {
         profile_picture:{
             type: 'string',
         },
-        role:{
-            type: 'number'
+        role_id:{
+            type: 'number',
+            required: true
         }
     },
 
@@ -38,5 +43,8 @@ module.exports = {
     },
     edit: async function (query, data) {
         return await people.update(query, data);
+    },
+    add: async function(input){
+        return await people.create(input);
     },
 }
