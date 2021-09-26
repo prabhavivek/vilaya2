@@ -14,7 +14,20 @@ module.exports = {
 			res.badRequest(err);
 		}
 	},
+    setPassword: async function (req, res) {
+		sails.log.info("@Controller PeopleController @Method setPassword(req,res)");
 
+        if(!req.body.id || req.body.id == undefined || !req.body.password || req.body.password == undefined)
+			return res.badRequest({message : "parameter(s) is missing"});
+
+		try{
+	       	let result = await PeopleService.setPassword(req.body);
+			res.json(result);
+		}catch(err){
+			sails.log.error("@Controller PeopleController @Method setPassword @Message Error:", err);
+			res.badRequest(err);
+		}
+	},
     signIn: async function (req, res) {
 		sails.log.info("@Controller PeopleController @Method signIn(req,res)");
 		try{

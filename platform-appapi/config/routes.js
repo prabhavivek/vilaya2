@@ -12,7 +12,8 @@ module.exports.routes = {
 
     //PeopleController
     'POST /user/sign/up'                    :  'PeopleController.signUp',
-    'POST  /user/sign/in'                    :  'PeopleController.signIn',
+    'POST /user/setpassword'                :  'PeopleController.setPassword',
+    'POST  /user/sign/in'                   :  'PeopleController.signIn',
     'POST /user/sign/out'                   :  'PeopleController.signOut',
     'POST /user/upload/profile/image'       :  'PeopleController.uploadProfile',
 

@@ -42,9 +42,9 @@ module.exports = {
         return await people.find(condition);
     },
     edit: async function (query, data) {
-        return await people.update(query, data);
+        return await people.update(query, data).fetch();
     },
     add: async function(input){
-        return await people.create(input);
+        return await people.create(input).fetch();
     },
 }
