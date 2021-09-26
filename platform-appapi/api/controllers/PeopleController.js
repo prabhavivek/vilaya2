@@ -30,8 +30,12 @@ module.exports = {
 	},
     signIn: async function (req, res) {
 		sails.log.info("@Controller PeopleController @Method signIn(req,res)");
+
+		if(((!req.body.email_id || req.body.email_id == undefined) && (!req.body.user_name || req.body.user_name == undefined) ) || !req.body.password || req.body.password == undefined)
+			return res.badRequest({message : "parameter(s) is missing"});
+
 		try{
-	       	let result = await PeopleService.signUp(input);
+	       	let result = await PeopleService.signIn(req.body);
 			res.json(result);
 		}catch(err){
 			sails.log.error("@Controller PeopleController @Method signIn @Message Error:", err);

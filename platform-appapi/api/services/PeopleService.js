@@ -12,8 +12,11 @@ module.exports = {
         
         if(_.size(isUserNameExist))
             throw {message: "Given user name already exists"}
-
-        let peopleRes = await people.add({user_name:input.user_name,email_id:input.email_id,first_name:input.first_name,role_id:input.role_id})
+        let query = {user_name:input.user_name,email_id:input.email_id,first_name:input.first_name,role_id:input.role_id}
+        
+        if(input.last_name)
+            query.last_name = input.last_name
+        let peopleRes = await people.add(query)
         
         let emailInput={}
         emailInput.email_id = input.email_id
@@ -27,5 +30,14 @@ module.exports = {
         let peopleRes = await people.edit({id:input.id},{password:input.password})
         if(_.size(peopleRes))
             return {message: `Password setup done`,statusCode:200}
+    },
+    signIn: async function (input) {
+        sails.log.info("@Service PeopleService @Method signIn",input);
+        let query = input.email_id ? {email_id:input.email_id,password:input.password} : {user_name:input.user_name,password:input.password}
+        let peopleRes = await people.getOneByCondition(query)
+        if(!_.size(peopleRes))
+            throw {statusCode:403,message: "Email id or password wrong"}
+        return  {statusCode:200,userData:peopleRes}
     }
+
 }
