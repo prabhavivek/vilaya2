@@ -18,12 +18,12 @@ module.exports.routes = {
     'POST /user/upload/profile/image'       :  'PeopleController.uploadProfile',
 
     //GameManagerController
+    'POST /manager/game/create/game'        :  'GameManagerController.createGame',
     'GET  /manager/game/list'               :  'GameManagerController.getGameList',
-    'POST /manager/game/details'            :  'GameManagerController.uploadGame',
     'PUT  /manager/game/edit'               :  'GameManagerController.editGame',
     'POST /manager/game/publish'            :  'GameManagerController.publish',
     'DELETE /manager/game/delete'           :  'GameManagerController.deleteGame',
-    'POST   /manager/game/invite/people'     :  'GameManagerController.invitePeople',
+    'POST   /manager/game/invite/people'     : 'GameManagerController.invitePeople',
 
     //GameController
     'GET /game/game/journey'                :   'GameController.getJourney',

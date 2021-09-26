@@ -1,14 +1,14 @@
 
 module.exports = {
 
-    tableName: 'game',
+    tableName: 'game_data',
 
     attributes: {
         id: {
             type: 'number',
-            required: true
+            autoIncrement: true
         },
-        game_type: {
+        game_id: {
             type: 'number',
             required: true
         },
@@ -18,19 +18,21 @@ module.exports = {
         answer: {
             type: 'string',
         },
-        game_id: {
-            type: 'number',
-            required: true
-        },
     },
 
     getOneByCondition: async function (condition) {
-        return await game.findOne(condition);
+        return await GameData.findOne(condition);
     },
     getAllByCondition: async function (condition) {
-        return await game.find(condition);
+        return await GameData.find(condition);
     },
     edit: async function (query, data) {
-        return await game.update(query, data);
+        return await GameData.update(query, data);
     },
+    add: async function(input){
+        return await GameData.create(input).fetch();
+    },
+    addAll:async function(input){
+        return await GameData.createEach(input)
+    }
 }

@@ -36,15 +36,15 @@ module.exports = {
     },
 
     getOneByCondition: async function (condition) {
-        return await people.findOne(condition);
+        return await People.findOne(condition);
     },
     getAllByCondition: async function (condition) {
-        return await people.find(condition);
+        return await People.find(condition);
     },
     edit: async function (query, data) {
-        return await people.update(query, data).fetch();
+        return await People.update(query, data).fetch();
     },
     add: async function(input){
-        return await people.create(input).fetch();
+        return await People.create(input).fetch();
     },
 }
