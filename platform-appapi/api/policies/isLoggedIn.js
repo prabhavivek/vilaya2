@@ -10,7 +10,7 @@ module.exports = async function (req, res, next) {
     let token = req.headers.authorization.split(' ')[1];
     try {
         jwt.verify(token, 'my_secret_key', (error, data) => {
-                req.user_id = data['user_id']
+            req.user_id = data['user_id']
         })
         next()
     } catch (error) {
