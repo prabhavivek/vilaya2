@@ -1,9 +1,10 @@
 import './App.css';
+import DashBoardLayout from './layouts/DashBoardLayout'
 
 export default function App() {
   return (
-    <div className="App">
-      Hi Vilaya2
+    <div >
+      <DashBoardLayout />
     </div>
   );
 }
