@@ -17,7 +17,7 @@ module.exports.policies = {
     '*': 'isLoggedIn',
   },
   GameController: {  
-    '*': true
+    '*': 'isLoggedIn'
   }
   
 };

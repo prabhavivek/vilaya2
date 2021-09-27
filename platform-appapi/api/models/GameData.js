@@ -37,5 +37,8 @@ module.exports = {
     },
     recordCount:async function(input){
         return await GameData.count(input)	
+    },
+    delete: async function(input){
+        return await GameData.destroy(input)	
     }
 }

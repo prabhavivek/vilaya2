@@ -36,4 +36,28 @@ module.exports = {
             res.badRequest(err);
         }
     },
+    deleteGame: async function(req, res){
+        sails.log.info("@Controller GameManagerController @Method deleteGame(req,res)");
+        try {
+            if (!req.user_id || req.user_id == undefined || !req.params.game_id)
+                return res.badRequest({ message: "parameter(s) is missing" });
+            let result = await GameManagerService.deleteGame(req.user_id,req.params.game_id)
+            res.json(result);
+        } catch (err) {
+            sails.log.error("@Controller PeopleController @Method deleteGame @Message Error:", err);
+            res.badRequest(err);
+        }
+    },
+    editGame: async function(req, res){
+        sails.log.info("@Controller GameManagerController @Method editGame(req,res)");
+        try {
+            if (!req.body.game_id || req.body.game_id == undefined || !req.body.game_name || req.body.game_name == undefined || !req.body.game_level_id || req.body.game_level_id == undefined)
+                return res.badRequest({ message: "parameter(s) is missing" });
+            let result = await GameManagerService.editGame(req.body)
+            res.json(result);
+        } catch (err) {
+            sails.log.error("@Controller PeopleController @Method editGame @Message Error:", err);
+            res.badRequest(err);
+        }
+    }
 }

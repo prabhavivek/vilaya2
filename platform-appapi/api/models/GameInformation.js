@@ -46,5 +46,8 @@ module.exports = {
     },
     add: async function(input){
         return await GameInformation.create(input).fetch();
+    },
+    delete: async function(input){
+        return await GameInformation.destroyOne(input)	
     }
 }

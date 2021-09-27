@@ -1,3 +1,6 @@
+const GameData = require("../models/GameData");
+const GameInformation = require("../models/GameInformation");
+
 module.exports = {
     createGame: async function (user_id,input) {
         sails.log.info("@Service PeopleService @Method createGame");
@@ -24,5 +27,19 @@ module.exports = {
             throw {statusCode:410,message:"Uploaded data is less than 25 so you can't publish the game"}
         let gameEditRes=await GameInformation.edit({id:input.game_id},{is_published:input.is_publish})
         return  {statusCode:200,message:gameEditRes[0].is_published ?'Game published successfully':'Game unpublished successfully'}
+    },
+    deleteGame: async function(user_id,game_id){
+        sails.log.info("@Service PeopleService @Method deleteGame",user_id,game_id);
+        await GameData.delete({game_id:game_id})
+        await GameInformation.delete({id:game_id})
+        return {statusCode:200,message:"Game Deleted successfully"}
+    },
+    editGame: async function(input){
+        sails.log.info("@Service PeopleService @Method editGame",input);
+        await GameInformation.edit({id:input.game_id},{game_name:input.game_name,discription:input.discription,game_profile_picture:input.game_profile_picture,game_level_id:input.game_level_id})
+        input.game_data.forEach(async element => {
+            await GameData.edit({id:element.id},{question:element.question,answer:element.answer})
+        });
+        return {statusCode:200,message:"Game updated successfully"}
     }
 }
