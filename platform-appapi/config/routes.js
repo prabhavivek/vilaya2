@@ -27,5 +27,5 @@ module.exports.routes = {
 
     //GameController
     'GET /game/game/journey'                :   'GameController.getJourney',
-    'GET /game/game'                        :   'GameController.getGame',
+    'GET /game/game/:game_id'               :   'GameController.getGame',
 };
