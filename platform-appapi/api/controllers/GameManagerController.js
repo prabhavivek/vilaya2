@@ -23,5 +23,17 @@ module.exports = {
             sails.log.error("@Controller PeopleController @Method getGameList @Message Error:", err);
             res.badRequest(err);
         }
-    }
+    },
+    publish: async function (req, res) {
+        sails.log.info("@Controller GameManagerController @Method publish(req,res)",req.body);
+        try {
+            if (!req.user_id || req.user_id == undefined  || req.body.is_publish == undefined || !req.body.game_id || req.body.game_id == undefined)
+                return res.badRequest({ message: "parameter(s) is missing" });
+            let result = await GameManagerService.publish(req.user_id,req.body)
+            res.json(result);
+        } catch (err) {
+            sails.log.error("@Controller PeopleController @Method publish @Message Error:", err);
+            res.badRequest(err);
+        }
+    },
 }

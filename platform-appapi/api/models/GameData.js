@@ -34,5 +34,8 @@ module.exports = {
     },
     addAll:async function(input){
         return await GameData.createEach(input)
+    },
+    recordCount:async function(input){
+        return await GameData.count(input)	
     }
 }

@@ -20,8 +20,8 @@ module.exports.routes = {
     //GameManagerController
     'POST /manager/game/create/game'        :  'GameManagerController.createGame',
     'GET  /manager/game/list'               :  'GameManagerController.getGameList',
-    'PUT  /manager/game/edit'               :  'GameManagerController.editGame',
     'POST /manager/game/publish'            :  'GameManagerController.publish',
+    'PUT  /manager/game/edit'               :  'GameManagerController.editGame',
     'DELETE /manager/game/delete'           :  'GameManagerController.deleteGame',
     'POST   /manager/game/invite/people'     : 'GameManagerController.invitePeople',
 

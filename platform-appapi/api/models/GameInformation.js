@@ -42,7 +42,7 @@ module.exports = {
         return await GameInformation.find(condition);
     },
     edit: async function (query, data) {
-        return await GameInformation.update(query, data);
+        return await GameInformation.update(query, data).fetch();
     },
     add: async function(input){
         return await GameInformation.create(input).fetch();
