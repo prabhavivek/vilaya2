@@ -9,6 +9,8 @@ export function authReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case AuthActionType.HANDLE_CHANGE:
             return { ...state, [action.payload.name]:action.payload.value}
+        case AuthActionType.SIGN_UP:
+            return { ...state, [action.payload.name]:action.payload.value}
         default: return state;
     }
 }

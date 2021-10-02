@@ -4,8 +4,7 @@ import '../../layouts/authLayout/util.css'
 import AuthLayout from '../../layouts/authLayout/AuthLayout'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-import AuthActionType from '../../actionTypes/AuthActionType';
-
+import {handleChangeAction} from '../../actions/AuthAction'
 const SignUpPage = ({handleChange,userDetails}) => {
     return (
         <AuthLayout title='Sign Up'>
@@ -40,7 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleChange   : e => dispatch({ type: AuthActionType.HANDLE_CHANGE, payload:{name:e.target.name,value:e.target.value}})
+    handleChange   : e => dispatch(handleChangeAction(e))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

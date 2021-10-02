@@ -1,35 +1,31 @@
-module.exports = {
-    header : function () {
-        return { "Content-Type": "application/json" }
-    },
-    request : function (input) {
-        return {
-            method: 'POST', 
-            headers: AuthApi.header(),
-            body: JSON.stringify(input),
-            redirect: 'follow'
-        }
-    },
-    signUp : function (input) {
-        return fetch(global.BASE_URL+"/user/sign/up", AuthApi.request(input))
-            .then(response => response.text())
-            .then(result =>{return result} )
-            .catch(error => console.log('@Api @AuthApi @signUp', error));
-    },
-    signIn: function(input){
-        return fetch(global.BASE_URL+"/user/sign/in", AuthApi.request(input))
-            .then(response => response.text())
-            .then(result =>{return result} )
-            .catch(error => console.log('@Api @AuthApi @signIn', error));
-    },
-    setPassword: function(input){
-        return fetch(global.BASE_URL+"/user/setpassword", AuthApi.request(input))
-            .then(response => response.text())
-            .then(result =>{return result} )
-            .catch(error => console.log('@Api @AuthApi @setPassword', error));
+import { BASE_URL } from '../global'
+
+export function header() {
+    return { "Content-Type": "application/json" }
+}
+export function request(input) {
+    return {
+        method: 'POST',
+        headers: header(),
+        body: JSON.stringify(input),
+        redirect: 'follow'
     }
 }
-
-
-
-
+export function signUp(input) {
+    return fetch(BASE_URL + "/user/sign/up", request(input))
+        .then(response => response.text())
+        .then(result => result)
+        .catch(error => console.log('@Api @AuthApi @signUp', error));
+}
+export function signIn(input) {
+    return fetch(BASE_URL + "/user/sign/in", request(input))
+        .then(response => response.text())
+        .then(result => result)
+        .catch(error => console.log('@Api @AuthApi @signIn', error));
+}
+export function setPassword(input) {
+    return fetch(BASE_URL + "/user/setpassword", request(input))
+        .then(response => response.text())
+        .then(result => result)
+        .catch(error => console.log('@Api @AuthApi @setPassword', error));
+}
