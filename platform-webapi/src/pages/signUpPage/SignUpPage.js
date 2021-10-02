@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+
 import '../../layouts/authLayout/main.css'
 import '../../layouts/authLayout/util.css'
 import AuthLayout from '../../layouts/authLayout/AuthLayout'
-import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
 import {handleChangeAction} from '../../actions/AuthAction'
+
+
+
 const SignUpPage = ({handleChange,userDetails}) => {
     return (
         <AuthLayout title='Sign Up'>
