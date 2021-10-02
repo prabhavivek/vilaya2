@@ -6,16 +6,16 @@ import { Link } from "react-router-dom";
 
 export default function ForgotPassword() {
     return (
-        <AuthLayout title='Sign In'>
-            <div class="wrap-input100 validate-input">
-                <input class="input100" type="text" name="username" placeholder="Email or User name" />
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+        <AuthLayout title='forgot password'>
+            <div className="wrap-input100 validate-input">
+                <input className="input100" type="text" name="username" placeholder="Email or User name" />
+                <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-            <div class="container-login100-form-btn">
-                <button class="login100-form-btn">Submit</button>
+            <div className="container-login100-form-btn">
+                <button className="login100-form-btn">Submit</button>
             </div>
-            <div class="text-center p-t-90">
-                <Link class="txt1" to='/'>Return to sign in page</Link>
+            <div className="text-center p-t-90">
+                <Link className="txt1" to='/'>Return to sign in page</Link>
             </div>
         </AuthLayout>
     )

@@ -3,33 +3,45 @@ import '../../layouts/authLayout/main.css'
 import '../../layouts/authLayout/util.css'
 import AuthLayout from '../../layouts/authLayout/AuthLayout'
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
-
-export default function SignUpPage() {
+const SignUpPage = ({handleChange,userDetails}) => {
+    console.log(userDetails)
     return (
         <AuthLayout title='Sign Up'>
-            <div class="wrap-input100 validate-input" >
-                <input class="input100" type="text" name="emailId" placeholder="Email" />
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            <div className="wrap-input100 validate-input" >
+                <input className="input100" type="text" value={userDetails.emailId} name="emailId" placeholder="Email" onChange={event => handleChange(event)} />
+                <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-            <div class="wrap-input100 validate-input" >
-                <input class="input100" type="text" name="firstName" placeholder="First name" />
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            <div className="wrap-input100 validate-input" >
+                <input className="input100" type="text" value={userDetails.firstName}  name="firstName" placeholder="First name" onChange={event => handleChange(event)} />
+                <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-            <div class="wrap-input100 validate-input" >
-                <input class="input100" type="text" name="lastName" placeholder="Last name" />
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            <div className="wrap-input100 validate-input" >
+                <input className="input100" type="text" value={userDetails.lastName} name="lastName" placeholder="Last name" onChange={event => handleChange(event)} />
+                <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-            <div class="wrap-input100 validate-input" >
-                <input class="input100" type="text" name="UserName" placeholder="User name" />
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            <div className="wrap-input100 validate-input" >
+                <input className="input100" type="text" value={userDetails.userName} name="UserName" placeholder="User name" onChange={event => handleChange(event)} />
+                <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
-            <div class="container-login100-form-btn">
-                <button class="login100-form-btn">Sign Up</button>
+            <div className="container-login100-form-btn">
+                <button className="login100-form-btn">Sign Up</button>
             </div>
-            <div class="text-center p-t-90">
-                <Link class="txt1" to='/'>Already have account ?</Link>
+            <div className="text-center p-t-90">
+                <Link className="txt1" to='/'>Already have account ?</Link>
             </div>
         </AuthLayout>
     )
 }
+
+const mapStateToProps = state => ({
+    userDetails: state.authState
+});
+
+
+const mapDispatchToProps = dispatch => ({
+    handleChange   : e => dispatch({ type: 'HANDLE_CHANGE', payload:{name:e.target.name,value:e.target.value}})
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
