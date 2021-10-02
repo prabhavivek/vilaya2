@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import AuthActionType from '../../actionTypes/AuthActionType';
 
 const SignUpPage = ({handleChange,userDetails}) => {
-    console.log(userDetails)
     return (
         <AuthLayout title='Sign Up'>
             <div className="wrap-input100 validate-input" >
