@@ -4,30 +4,18 @@ import React, { useState, useContext, useEffect, createContext } from "react";
 import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
 import Cookies from 'js-cookie'
 import SignInPage from './pages/signInPage/SignInPage';
-import GameJourney from './pages/gameJourney/GameJourney';
+import SignUpPage from './pages/signUpPage/SignUpPage';
+import SetPassword from './pages/setPassword/SetPassword';
+import ForgotPassword from './pages/forgotPassword/ForgotPassword';
 
 const AuthApi = createContext();
 
 const ProtectedRoutes = ({ auth, component: Component }) => {
-  return (
-    <Route
-      render={() => auth ?
-        (<Component />) :
-        (<Redirect to='/' />)
-      }
-    />
-  )
+  return (<Route render={() => auth ? (<Component />) : (<Redirect to='/' />)} />)
 }
 
 const ProtectedLogin = ({ auth, component: Component }) => {
-  return (
-    <Route
-      render={() => !auth ?
-        (<Component />) :
-        (<Redirect to='/home' />)
-      }
-    />
-  )
+  return (<Route render={() => !auth ? (<Component />) : (<Redirect to='/home' />)} />)
 }
 
 export default function App() {
@@ -57,8 +45,12 @@ const Routes = () => {
   return (
     <Switch>
       <ProtectedLogin path="/" exact component={SignInPage} auth={Auth.auth} />
+      <ProtectedLogin path="/signUp"  component={SignUpPage} auth={Auth.auth} />
+      <ProtectedLogin path="/setPassword"  component={SetPassword} auth={Auth.auth} />
+      <ProtectedLogin path="/forgotPassword"  component={ForgotPassword} auth={Auth.auth} />
+
       {/*<Route path="/verifyOtp" render={(props) => <Otp  {...props} />} />*/}
-      <ProtectedRoutes path="/home" component={GameJourney} auth={Auth.auth}  />
+      {/*<ProtectedRoutes path="/home" component={GameJourney} auth={Auth.auth} />*/}
     </Switch>
 
   )
