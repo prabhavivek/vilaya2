@@ -4,6 +4,7 @@ import '../../layouts/authLayout/util.css'
 import AuthLayout from '../../layouts/authLayout/AuthLayout'
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import AuthActionType from '../../actionTypes/AuthActionType';
 
 const SignUpPage = ({handleChange,userDetails}) => {
     console.log(userDetails)
@@ -22,7 +23,7 @@ const SignUpPage = ({handleChange,userDetails}) => {
                 <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
             <div className="wrap-input100 validate-input" >
-                <input className="input100" type="text" value={userDetails.userName} name="UserName" placeholder="User name" onChange={event => handleChange(event)} />
+                <input className="input100" type="text" value={userDetails.userName} name="userName" placeholder="User name" onChange={event => handleChange(event)} />
                 <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
             <div className="container-login100-form-btn">
@@ -39,9 +40,8 @@ const mapStateToProps = state => ({
     userDetails: state.authState
 });
 
-
 const mapDispatchToProps = dispatch => ({
-    handleChange   : e => dispatch({ type: 'HANDLE_CHANGE', payload:{name:e.target.name,value:e.target.value}})
+    handleChange   : e => dispatch({ type: AuthActionType.HANDLE_CHANGE, payload:{name:e.target.name,value:e.target.value}})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
