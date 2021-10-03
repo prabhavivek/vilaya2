@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import '../../layouts/authLayout/main.css'
 import '../../layouts/authLayout/util.css'
 import AuthLayout from '../../layouts/authLayout/AuthLayout'
-import {handleChangeAction} from '../../actions/AuthAction'
+import {handleChangeAction,signUp} from '../../actions/AuthAction'
 
 
 
-const SignUpPage = ({handleChange,userDetails}) => {
+const SignUpPage = ({handleChange,userDetails,signUp}) => {
     return (
         <AuthLayout title='Sign Up'>
             <div className="wrap-input100 validate-input" >
@@ -18,18 +18,18 @@ const SignUpPage = ({handleChange,userDetails}) => {
             </div>
             <div className="wrap-input100 validate-input" >
                 <input className="input100" type="text" value={userDetails.firstName}  name="firstName" placeholder="First name" onChange={event => handleChange(event)} />
-                <span className="focus-input100" data-placeholder="&#xf207;"></span>
+                <span className="focus-input100"  data-placeholder="&#xf207;" ></span>
             </div>
             <div className="wrap-input100 validate-input" >
                 <input className="input100" type="text" value={userDetails.lastName} name="lastName" placeholder="Last name" onChange={event => handleChange(event)} />
-                <span className="focus-input100" data-placeholder="&#xf207;"></span>
+                <span className="focus-input100" data-placeholder="&#xf207;" ></span>
             </div>
             <div className="wrap-input100 validate-input" >
                 <input className="input100" type="text" value={userDetails.userName} name="userName" placeholder="User name" onChange={event => handleChange(event)} />
                 <span className="focus-input100" data-placeholder="&#xf207;"></span>
             </div>
             <div className="container-login100-form-btn">
-                <button className="login100-form-btn">Sign Up</button>
+                <button className="login100-form-btn" onClick={signUp}>Sign Up</button>
             </div>
             <div className="text-center p-t-90">
                 <Link className="txt1" to='/'>Already have account ?</Link>
@@ -43,7 +43,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    handleChange   : e => dispatch(handleChangeAction(e))
+    handleChange : e => dispatch(handleChangeAction(e)),
+    signUp : () => dispatch(signUp)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

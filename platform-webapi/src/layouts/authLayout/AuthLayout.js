@@ -9,7 +9,7 @@ export default function AuthLayout(props) {
         <div className="limiter">
             <div className="container-login100" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="wrap-login100">
-                    <form className="login100-form validate-form">
+                    <div className="login100-form validate-form">
                         <span className="login100-form-logo">
                             <img className="zmdi zmdi-landscape" alt = 'vilaya2 logo' style={{ height: 100, width: 100 }} src={logo} />
                         </span>
@@ -17,7 +17,7 @@ export default function AuthLayout(props) {
                             {props.title}
                         </span>
                         {props.children}
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -27,12 +27,12 @@ module.exports.security = {
   * https://sailsjs.com/docs/concepts/security/cors                          *
   *                                                                          *
   ***************************************************************************/
-
-  // cors: {
-  //   allRoutes: false,
-  //   allowOrigins: '*',
-  //   allowCredentials: false,
-  // },
+   cors: {
+    allRoutes: true,
+    allowOrigins: '*',
+    allowCredentials: false,
+    allowRequestHeaders: 'content-type, Accept, Authorization, Origin, X-Requested-With, university, device, tus-resumable, upload-length, upload-metadata',
+  },
 
 
   /****************************************************************************
