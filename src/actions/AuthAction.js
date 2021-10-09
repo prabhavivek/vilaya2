@@ -6,7 +6,7 @@ var myHeaders = {"Content-Type": "application/json"}
 
 const request = input =>({
     method: 'POST',
-    headers: myHeaders,
+    headers: myHeaders, 
     body: input,
     redirect: 'follow'  
 })
