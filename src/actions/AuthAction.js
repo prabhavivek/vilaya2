@@ -8,7 +8,7 @@ const request = input =>({
     method: 'POST',
     headers: myHeaders,
     body: input,
-    redirect: 'follow'
+    redirect: 'follow' 
 })
 
 export function handleChangeAction(e) {
