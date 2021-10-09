@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.549d6bc1.chunk.css",
-    "main.js": "/static/js/main.7f3035e8.chunk.js",
-    "main.js.map": "/static/js/main.7f3035e8.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.07f9b656.js",
-    "runtime-main.js.map": "/static/js/runtime-main.07f9b656.js.map",
-    "static/js/2.32204db2.chunk.js": "/static/js/2.32204db2.chunk.js",
-    "static/js/2.32204db2.chunk.js.map": "/static/js/2.32204db2.chunk.js.map",
-    "static/js/3.289d2211.chunk.js": "/static/js/3.289d2211.chunk.js",
-    "static/js/3.289d2211.chunk.js.map": "/static/js/3.289d2211.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.549d6bc1.chunk.css.map": "/static/css/main.549d6bc1.chunk.css.map",
-    "static/js/2.32204db2.chunk.js.LICENSE.txt": "/static/js/2.32204db2.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/005.198149ba.png",
-    "static/media/banner1.01aace94.jpg": "/static/media/banner1.01aace94.jpg",
-    "static/media/vilaya2.384145f3.png": "/static/media/vilaya2.384145f3.png"
+    "main.css": "/vilaya2/static/css/main.dc3942d7.chunk.css",
+    "main.js": "/vilaya2/static/js/main.7f3035e8.chunk.js",
+    "main.js.map": "/vilaya2/static/js/main.7f3035e8.chunk.js.map",
+    "runtime-main.js": "/vilaya2/static/js/runtime-main.202538ef.js",
+    "runtime-main.js.map": "/vilaya2/static/js/runtime-main.202538ef.js.map",
+    "static/js/2.32204db2.chunk.js": "/vilaya2/static/js/2.32204db2.chunk.js",
+    "static/js/2.32204db2.chunk.js.map": "/vilaya2/static/js/2.32204db2.chunk.js.map",
+    "static/js/3.289d2211.chunk.js": "/vilaya2/static/js/3.289d2211.chunk.js",
+    "static/js/3.289d2211.chunk.js.map": "/vilaya2/static/js/3.289d2211.chunk.js.map",
+    "index.html": "/vilaya2/index.html",
+    "static/css/main.dc3942d7.chunk.css.map": "/vilaya2/static/css/main.dc3942d7.chunk.css.map",
+    "static/js/2.32204db2.chunk.js.LICENSE.txt": "/vilaya2/static/js/2.32204db2.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/vilaya2/static/media/005.198149ba.png",
+    "static/media/banner1.01aace94.jpg": "/vilaya2/static/media/banner1.01aace94.jpg",
+    "static/media/vilaya2.384145f3.png": "/vilaya2/static/media/vilaya2.384145f3.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.07f9b656.js",
+    "static/js/runtime-main.202538ef.js",
     "static/js/2.32204db2.chunk.js",
-    "static/css/main.549d6bc1.chunk.css",
+    "static/css/main.dc3942d7.chunk.css",
     "static/js/main.7f3035e8.chunk.js"
   ]
 }
