@@ -9,7 +9,7 @@ const request = input =>({
     headers: myHeaders, 
     body: input,
     redirect: 'follow'   
-})
+}) 
 
 export function handleChangeAction(e) {
     return { type: AuthActionType.HANDLE_CHANGE, payload: { name: e.target.name, value: e.target.value } }
